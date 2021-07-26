@@ -50,3 +50,4 @@ coverage.xml
 
 # wstool dependencies
 dependencies/
+.vscode/

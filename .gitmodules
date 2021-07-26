@@ -4,3 +4,6 @@
 [submodule "mapping/perception_ros"]
 	path = mapping/perception_ros
 	url = https://github.com/hmz-15/perception_ros.git
+[submodule "mapping/voxblox-plusplus"]
+	path = mapping/voxblox-plusplus
+	url = https://github.com/hmz-15/voxblox-plusplus.git
