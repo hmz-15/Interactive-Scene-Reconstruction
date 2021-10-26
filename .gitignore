@@ -22,6 +22,7 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.log
 MANIFEST
 
 # PyInstaller
@@ -29,6 +30,7 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+*.pyc
 
 # Installer logs
 pip-log.txt
@@ -48,6 +50,11 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# wstool dependencies
-dependencies/
+*.png
+*.tar.xz
+*.tar.gz
+
+# wstool dependencies & output
+dependency/
+output/
 .vscode/

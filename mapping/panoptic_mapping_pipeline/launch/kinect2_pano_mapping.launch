@@ -1,0 +1,122 @@
+<launch>
+
+  <!-- scene dataset -->
+  <arg name="dataset" default="kinect2" />
+  <!-- vrep-rendered sequences need depth flip -->
+  <arg name="flip_depth" default="false" />
+  <!-- ground normal direction, 0:x, 1:y, 2:z -->
+  <arg name="ground_axis" default="2" />
+
+  <!-- sequence name (saved folder name) -->
+  <arg name="sequence" default="kinect2_test" />
+
+  <!-- operation mode -->
+  <!-- localize with SLAM or use ground truth camera pose (no ground truth available for kinect camera scanning) -->
+  <arg name="compute_localization" default="true" />
+  <arg name="use_GT_pose" default="false" />
+  <!-- save sequence images (rgb, depth, panoptic seg, depth seg, fused seg) -->
+  <arg name="save_img" default="false" />
+  <!-- publish per-frame segments -->
+  <arg name="pub_point_cloud_seg" default="true" />
+  <!-- perform panoptic mapping -->
+  <arg name="mapping" default="true" />
+  <!-- visualize per-frame segmentation and mapping -->
+  <arg name="visualize_fusion_seg" default="true" />
+  <arg name="visualize_mapping" default="true" />
+
+  <!-- SLAM parameters (it's recommended to run SLAM on the sequence for once to save map, 
+                and localize against the map for better mapping performance) -->
+  <arg name="localize_only" default="false" />
+  <arg name="load_map" default="false" />
+  <arg name="map_file" default="*.bin" />
+  <!-- Use ground truth camera pose or initial camera height to compute world_to_map transform -->
+  <arg name="GT_available" default="false" />
+  <!-- we can start with the camera at horizontal position and specified initial height to make the reconstructed scene on the ground -->
+  <arg name="init_height" default="1.0"  /> 
+
+  <!-- detectron (segmentation) parameters -->
+  <arg name="enable_detectron" default="true" />
+  <arg name="detectron_model" default="Pano_seg" />
+
+  <!-- input topics -->
+  <arg name="rgb_raw_topic" default="kinect2/qhd/image_color_rect" />
+  <arg name="camera_info_topic" default="kinect2/qhd/camera_info" />
+  <arg name="depth_raw_topic" default="kinect2/qhd/image_depth_rect" />
+
+  <!-- intermediate output topics -->
+  <arg name="output_rgb_topic" default="/perception/rgb_image" />
+  <arg name="output_depth_topic" default="/perception/depth_image" />
+  <arg name="output_camera_info_topic" default="/perception/camera_info" />
+  <arg name="output_seg_topic" default="/perception/seg" />
+  <arg name="output_point_cloud_seg_topic" default="/perception/seg_point_cloud" />
+
+  <!-- frame parameters (SLAM frame, ground truth frames) -->
+  <arg name="camera_frame" default="camera_link" /> 
+  <arg name="rgb_frame_id" default="kinect2_rgb_optical_frame" />
+  <arg name="depth_frame_id" default="kinect2_rgb_optical_frame" />
+
+
+  <!-- launch node for image processing & panoptic segmentation -->
+  <node name="robot_perception_node" pkg="perception_ros" type="perception_node.py" output="screen">
+      <remap from="/camera/rgb/image_raw" to="$(arg rgb_raw_topic)"/>
+      <remap from="/camera/depth/image_raw" to="$(arg depth_raw_topic)"/>
+      <remap from="/camera/rgb/camera_info" to="$(arg camera_info_topic)"/>
+
+      <remap from="/perception/rgb_image" to="$(arg output_rgb_topic)"/>
+      <remap from="/perception/depth_image" to="$(arg output_depth_topic)"/>
+      <remap from="/perception/camera_info" to="$(arg output_camera_info_topic)"/>
+      <remap from="/perception/seg" to="$(arg output_seg_topic)"/>
+
+      <param name="flip_depth" type="bool" value="$(arg flip_depth)"/>
+      <param name="enable_detectron" type="bool" value="$(arg enable_detectron)" />
+      <param name="detectron_ip" type="str" value="0.0.0.0"/>
+      <param name="detectron_port" type="int" value="8801"/>
+      <param name="detectron_model" type="str" value="$(arg detectron_model)"/>
+  </node>
+
+  <!-- launch node for SLAM -->
+  <include file="$(find orb_slam2_ros)/ros/launch/orb_slam2_RGBD.launch" if="$(arg compute_localization)" >
+      <arg name="dataset" value="$(arg dataset)" />
+      <arg name="localize_only" value="$(arg localize_only)" />
+      <arg name="load_map" value="$(arg load_map)" />
+      <arg name="map_file" value="$(arg map_file)" />
+
+      <arg name="camera_frame_id" value="$(arg camera_frame)" />
+      <arg name="camera_frame_GT_id" value="$(arg rgb_frame_id)" />
+      <arg name="GT_available" value="$(arg GT_available)" />  
+      <arg name="init_height" value="$(arg init_height)"  /> 
+      <!-- use output topics from perception_node -->
+      <arg name="rgb_raw_topic" value="$(arg output_rgb_topic)" />
+      <arg name="depth_raw_topic" value="$(arg output_depth_topic)" /> 
+      <arg name="camera_info_topic" value="$(arg output_camera_info_topic)" />
+  </include>
+
+  <!-- launch node for depth segmentation & per-frame segment generation -->
+  <node name="pc_seg_generator_node" pkg="perception_ros" type="pc_seg_generator_node" output="screen" if="$(arg pub_point_cloud_seg)">
+      <rosparam command="load" file="$(find perception_ros)/cfg/seg_param.yaml" />
+      <rosparam command="load" file="$(find perception_ros)/cfg/pc_gen_param.yaml" />
+      <rosparam command="load" file="$(find panoptic_mapping_pipeline)/cfg/pano_class.yaml" />
+
+      <remap from="/perception/rgb_image" to="$(arg output_rgb_topic)"/>
+      <remap from="/perception/depth_image" to="$(arg output_depth_topic)"/>
+      <remap from="/perception/camera_info" to="$(arg output_camera_info_topic)"/>
+      <remap from="/perception/seg" to="$(arg output_seg_topic)"/>
+      
+      <param name="output_folder" type="string" value="$(eval '/'.join(find('panoptic_mapping_pipeline').split('/')[:-2])+'/output/'+arg('sequence'))" />
+      <param name="use_GT_camera_frame" type="bool" value="$(arg use_GT_pose)" />
+      <param name="camera_frame" type="string" value="$(arg camera_frame)" />
+      <param name="save_img" type="bool" value="$(arg save_img)" />
+      <param name="visualize_fusion_seg" type="bool" value="$(arg visualize_fusion_seg)" />
+  </node>
+
+  <!-- launch node for panoptic mapping -->
+  <node name="gsm_node" pkg="gsm_node" type="gsm_node" output="screen" if="$(arg mapping)">
+      <param name="output_folder" value="$(eval '/'.join(find('panoptic_mapping_pipeline').split('/')[:-2])+'/output/'+arg('sequence'))" />
+      <rosparam command="load" file="$(find gsm_node)/cfg/default.yaml" />
+      <rosparam command="load" file="$(find gsm_node)/cfg/pano_mapping.yaml" />
+      <rosparam command="load" file="$(find panoptic_mapping_pipeline)/cfg/pano_class.yaml" />
+      <param name="meshing/visualize" type="bool" value="$(arg visualize_mapping)" />
+      <param name="ground_axis" type="int" value="$(arg ground_axis)" />
+  </node>
+
+</launch>

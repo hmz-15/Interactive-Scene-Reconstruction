@@ -1,0 +1,44 @@
+# panoptic classes {category_name: list of id}
+pano_seg_class:
+  {"Person": [0], "Bench": [13], "Backpack": [24], "Bottle": [39], "Cup": [41], "Chair": [56], "Couch": [57], "Bed": [59], "Table": [60, 122], "Toilet": [61], 
+   "TV": [62], "Laptop": [63], "Mouse": [64], "Keyboard": [66], "Microwave": [68], "Oven": [69], "Refrigerator": [72], "Book": [73], "Cabinet": [121], 
+   "Floor": [123, 88, 97, 98, 101, 124], "Wall": [132, 110, 111, 112, 113], "Ceiling": [119]}
+
+
+# thing class with color
+obj_class_with_color: 
+  {"Person": [220, 20, 60], "Bench": [250, 0, 30], "Backpack": [255, 179, 240], "Bottle": [197, 226, 255], "Cup": [109, 63, 54], 
+   "Chair": [153, 69, 1], "Couch": [3, 95, 161], "Bed": [119, 0, 170], "Table": [0, 182, 199], "Toilet": [0, 165, 120], "TV": [183, 130, 88],
+   "Laptop": [95, 32, 0], "Mouse": [130, 114, 135], "Keyboard": [166, 74, 118], "Microwave": [79, 210, 114], "Oven": [178, 90, 62], 
+   "Refrigerator": [59, 105, 106], "Book": [142, 108, 45], "Cabinet": [134, 199, 156]}
+
+# stuff class with color
+sem_class_with_color:
+  {"Floor": [96, 36, 108], "Wall": [102, 102, 156], "Ceiling": [146, 139, 141]}
+
+# dynamic object filtered
+dynamic_obj_class: ["Person"]
+
+# Background semantic label
+background_label: 80
+  
+
+# [[119, 11, 32], 1, "bicycle"], 
+# [[209, 0, 151], 26, "handbag"], 
+# [[0, 220, 176], 28, "suitcase"], 
+# [[171, 134, 1], 40, "wine glass"], 
+# [[84, 105, 51], 45, "bowl"], 
+# [[163, 255, 0], 58, "PottedPlant"],     
+# [[110, 129, 133], 65, "Remote"], 
+# [[219, 142, 185], 67, "cell phone"], 
+# [[65, 70, 15], 70, "toaster"], 
+# [[127, 167, 115], 71, "Sink"], 
+# [[196, 172, 0], 74, "Clock"], 
+# [[95, 54, 80], 75, "vase"], 
+# [[128, 76, 255], 76, "scissors"], 
+# [[201, 57, 1], 77, "teddy bear"]
+# [[246, 0, 122], 78, "hair drier"], 
+# [[191, 162, 208], 79, "toothbrush"]
+# [[92, 136, 89], [87], "Door"], 
+# [[255, 160, 98], [125], "shelf"],
+# [[183, 121, 142], [115, 116], "window"],

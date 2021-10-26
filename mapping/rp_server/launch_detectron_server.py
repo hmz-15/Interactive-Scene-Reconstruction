@@ -1,8 +1,7 @@
-# from rp_server import OpenposeServer
 from rp_server import DetectronServer
 
 
-DEFAULT_HOST = "192.168.1.139"
+DEFAULT_HOST = "0.0.0.0"
 DT_SERVER_PORT = 8801
 DT2_MODEL_TYPE = "Pano_seg"
 
