@@ -16,7 +16,7 @@ The proposed pipeline reconstructs an interactive indoor scene from RGBD streams
 the reconstructed scene naturally encodes actionable information in terms of environmental kinematics, and can be imported into various simulators to support robot interactions.
 
 The pipeline consists of 3 modules:
-- A robust panoptic mapping module that accurately reconstruct the semantics and geometry of objects and layouts, which is a modified version of [Voxblox++](https://github.com/ethz-asl/voxblox-plusplus) but with improved robustness. The 2D image segmentation is obtained using [Detectron2] (https://github.com/facebookresearch/detectron2)
+- A robust panoptic mapping module that accurately reconstruct the semantics and geometry of objects and layouts, which is a modified version of [Voxblox++](https://github.com/ethz-asl/voxblox-plusplus) but with improved robustness. The 2D image segmentation is obtained using [Detectron2](https://github.com/facebookresearch/detectron2)
 - An object-based reasoning module that constructs a contact graph from the dense panoptic map and replaces objects with aligned CAD models
 - An interface that converts a contact graph into a kinematic tree in the URDF format, which can be imported into ROS-based simulators
 
