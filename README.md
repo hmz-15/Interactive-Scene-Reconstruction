@@ -33,7 +33,7 @@ The pipeline consists of 3 modules:
 
 - [Installation on Ubuntu](https://github.com/hmz-15/Interactive-Scene-Reconstruction/blob/main/INSTALL.md)
 
-- [Robust Panoptic Mapping]()
+- [Robust Panoptic Mapping](https://github.com/hmz-15/Interactive-Scene-Reconstruction/tree/main/mapping)
 
 ## Citing
 
