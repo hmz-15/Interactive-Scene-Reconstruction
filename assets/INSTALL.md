@@ -33,14 +33,14 @@ cd src
 git clone --recursive https://github.com/hmz-15/Interactive-Scene-Reconstruction.git
 ```
 
-Then add dependencies specified by .rosinstall using wstool
+Then add dependencies specified by .rosinstall using wstool. For your conivenience, we provide a shell to automatically setup the wstool configuration.
 
 ``` shell
-cd Interactive-Scene-Reconstruction
-mkdir dependency && wstool init dependency && cd dependency
-wstool merge -t . ../dependency_https.rosinstall
-wstool update
+cd <your-ros-ws>
+sh src/Interactive-Scene-Reconstruction/wstool_setup_https.sh
 ```
+
+Noted that switch to `wstool_setup_ssh.sh` if you are using ssh instead of https.
 
 ## Install python dependencies
 
@@ -81,7 +81,7 @@ Then we build the ros packages with `catkin build`.
 ``` shell
 cd <your-ros-ws>
 # Build packages for panoptic mapping
-catkin build panoptic_mapping_pipeline -j2
+catkin build panoptic_mapping_pipeline scene_builder gazebo_simulation -j2
 source devel/setup.bash
 ```
 Please replace `bash` by `zsh` if `zsh` is your default shell.

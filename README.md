@@ -7,7 +7,7 @@
 
 ### [Project Page](https://sites.google.com/view/icra2021-reconstruction) | [Paper](https://ieeexplore.ieee.org/document/9561546) | [Arxiv](https://arxiv.org/pdf/2103.16095.pdf)
 <p align="center">
-  <img width="500" height="300" src="motivation.jpg">
+  <img width="500" height="300" src="assets/motivation.jpg">
 </p>
 
 
@@ -25,15 +25,16 @@ The pipeline consists of 3 modules:
 
 - [x] Upload code for panoptic mapping
 - [ ] Upload code for CAD replacement
-- [ ] Upload code for URDF conversion and scene visualization
+- [x] Upload code for URDF conversion and scene visualization
 - [ ] Upload dataset and use cases
 - [ ] Update instructions
 
 ## Installation and Usages
 
-- [Installation on Ubuntu](https://github.com/hmz-15/Interactive-Scene-Reconstruction/blob/main/INSTALL.md)
+- [Installation on Ubuntu](assets/INSTALL.md)
+- [Robust Panoptic Mapping](mapping/)
+- [Scene Generation](interactive_scene/scene_builder/)
 
-- [Robust Panoptic Mapping](https://github.com/hmz-15/Interactive-Scene-Reconstruction/tree/main/mapping)
 
 ## Citing
 
