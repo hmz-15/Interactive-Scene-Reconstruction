@@ -1,0 +1,12 @@
+<launch>
+    <arg name="object" default="iai_fridge" />
+    
+    <arg name="urdf_file" value="$(find scene_builder)/assets/interactive/$(arg object)/$(arg object).urdf" />
+
+    <param name="robot_description" textfile="$(arg urdf_file)" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+    <node name="view_scene" pkg="rviz" type="rviz" args="-d $(find scene_builder)/rviz/view_object.rviz" />
+</launch>

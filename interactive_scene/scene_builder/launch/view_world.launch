@@ -1,0 +1,13 @@
+<launch>
+    <arg name="scene" default="scenenn_001" />
+    <arg name="urdf_file" value="xacro --inorder '$(find scene_builder)/output/$(arg scene)/main.xacro'" />
+
+    <param name="robot_description" command="$(arg urdf_file)" />
+
+    <node pkg="tf" type="static_transform_publisher" name="world_to_room" args="0 0 0 0 1 0 0 world Room_0_link 100" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <node name="view_scene" pkg="rviz" type="rviz" args="-d $(find scene_builder)/rviz/view_world.rviz" />
+</launch>

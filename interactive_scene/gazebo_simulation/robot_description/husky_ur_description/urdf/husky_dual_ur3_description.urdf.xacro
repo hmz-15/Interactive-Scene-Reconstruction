@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find ur_description)/urdf/ur3.urdf.xacro" />
+
+  <link name="dual_arm_bulkhead_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://husky_ur_description/meshes/dual_arm_bulkhead.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://husky_ur_description/meshes/dual_arm_bulkhead_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="dual_arm_bulkhead_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="dual_arm_bulkhead_link"/>
+    <origin xyz="0 0 0.224" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="left_arm_mount_joint" type="fixed">
+    <parent link="dual_arm_bulkhead_link" />
+    <child link="left_ur_arm_base_link" />
+    <origin xyz="$(optenv HUSKY_LEFT_UR_XYZ 0.1225 0.14891 0.13371)" rpy="$(optenv HUSKY_LEFT_UR_RPY 0.785398 0 3.14159)"/>
+  </joint>
+
+  <joint name="right_arm_mount_joint" type="fixed">
+    <parent link="dual_arm_bulkhead_link" />
+    <child link="right_ur_arm_base_link" />
+    <origin xyz="$(optenv HUSKY_RIGHT_UR_XYZ 0.1225 -0.14891 0.13371)" rpy="$(optenv HUSKY_RIGHT_UR_RPY 0.785398 0 0)"/>
+  </joint>
+
+  <xacro:ur3_robot prefix="right_ur_arm_" joint_limited="true"/>
+  <xacro:ur3_robot prefix="left_ur_arm_" joint_limited="true"/>
+</robot>

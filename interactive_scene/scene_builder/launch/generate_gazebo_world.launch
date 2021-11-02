@@ -1,0 +1,13 @@
+<launch>
+    <!-- directory/name of the scene -->
+    <arg name="scene_name" default="scenenn_225" />
+    <!-- input xacro file -->
+    <arg name="xacro_file" default="$(find scene_builder)/output/$(arg scene_name)/main.xacro" />
+    <!-- gazebo world template to generate the gazebo simulation world -->
+    <arg name="world_template" default="$(find scene_builder)/../../cad_dataset/gazebo_world/sun_template.world" />
+
+    <node name="generate_gazebo_world" pkg="scene_builder" type="ros_generate_gazebo_world.py" output="screen">
+        <param name="xacro_file" type="string" value="$(arg xacro_file)" />
+        <param name="world_template" type="string" value="$(arg world_template)" />
+    </node>
+</launch>

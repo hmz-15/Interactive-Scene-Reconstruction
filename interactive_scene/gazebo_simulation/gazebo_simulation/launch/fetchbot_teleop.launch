@@ -1,0 +1,9 @@
+<launch>
+    <arg name="enable_rviz" default="true" />
+
+    <!-- teleop -->
+    <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" />
+    
+    <node name="view_robot_state" pkg="rviz" type="rviz" args="-d $(find gazebo_simulation)/rviz/gazebo_robot_state.rviz" if="$(arg enable_rviz)" />
+
+</launch>

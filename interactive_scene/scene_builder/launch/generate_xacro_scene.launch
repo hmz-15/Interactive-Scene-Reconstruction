@@ -1,0 +1,35 @@
+<launch>
+    <!-- name of the scene/sequence -->
+    <arg name="scene_name" default="sceneNN_test" />
+    <!-- directory of the scene -->
+    <arg name="input_scene_dir" default="$(find scene_builder)/../../output/$(arg scene_name)" />
+    <!-- the directory of the ROS scene_builder package -->
+    <arg name="scene_builder_root" default="$(find scene_builder)" />
+    <!-- the name of the output folder -->
+    <arg name="output_dir_name" default="$(arg scene_name)" />
+    <!-- the directory rigid cad databse -->
+    <arg name="rigid_mesh_db" default="$(find scene_builder)/../../cad_dataset/rigid_object" />
+    <!-- the directory articulated cad databse -->
+    <arg name="articulated_mesh_db" default="$(find scene_builder)/../../cad_dataset/articulated_object" />
+    <!-- the directory of aligned TF of the articulated object -->
+    <arg name="articulated_mesh_default_tf_file" default="$(arg articulated_mesh_db)/interactive_transform.json" />
+    <!-- enable vrgym export -->
+    <arg name="enable_vrgym" default="false" />
+    <!-- enable physical properties of the object -->
+    <arg name="enable_physics" default="false" />
+    <!-- enable gazebo export -->
+    <arg name="enable_gazebo" default="false" />
+
+
+    <node name="build_xacro_scene" pkg="scene_builder" type="ros_build_xacro_scene.py" output="screen">
+        <param name="input_scene_dir" type="string" value="$(arg input_scene_dir)" />
+        <param name="scene_builder_root" type="string" value="$(arg scene_builder_root)" />
+        <param name="output_dir_name" type="string" value="$(arg output_dir_name)" />
+        <param name="rigid_mesh_db" type="string" value="$(arg rigid_mesh_db)" />
+        <param name="articulated_mesh_db" type="string" value="$(arg articulated_mesh_db)" />
+        <param name="articulated_mesh_default_tf_file" type="string" value="$(arg articulated_mesh_default_tf_file)" />
+        <param name="enable_vrgym" type="bool" value="$(arg enable_vrgym)" />
+        <param name="enable_physics" type="bool" value="$(arg enable_physics)" />
+        <param name="enable_gazebo" type="bool" value="$(arg enable_gazebo)" />
+    </node>
+</launch>

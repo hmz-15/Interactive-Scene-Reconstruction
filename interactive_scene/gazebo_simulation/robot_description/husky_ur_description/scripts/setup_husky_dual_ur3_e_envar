@@ -1,0 +1,4 @@
+export HUSKY_TOP_PLATE_ENABLED=false
+export HUSKY_USER_RAIL_ENABLED=false
+
+export HUSKY_URDF_EXTRAS=$(catkin_find husky_ur_description urdf/husky_dual_ur3_e_description.urdf.xacro --first-only)

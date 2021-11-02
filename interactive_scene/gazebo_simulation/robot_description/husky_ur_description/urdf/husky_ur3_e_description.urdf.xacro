@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find ur_e_description)/urdf/ur3e.urdf.xacro" />
+
+  <joint name="arm_mount_joint" type="fixed">
+    <parent link="top_plate_front_link" />
+    <child link="ur_arm_base_link" />
+    <origin xyz="$(optenv HUSKY_UR_XYZ -0.105 0.0 0.0)" rpy="$(optenv HUSKY_UR_RPY 0 0 3.1415927)"/>
+  </joint>
+
+  <xacro:ur3e_robot prefix="ur_arm_" joint_limited="true"/>
+</robot>
