@@ -24,16 +24,17 @@ The pipeline consists of 3 modules:
 ## Todo
 
 - [x] Upload code for panoptic mapping
-- [ ] Upload code for CAD replacement
+- [x] Upload code for CAD replacement
 - [x] Upload code for URDF conversion and scene visualization
-- [ ] Upload dataset and use cases
-- [ ] Update instructions
+- [x] Upload dataset and use cases
+- [x] Update instructions
 
 ## Installation and Usages
 
 - [Installation on Ubuntu](assets/INSTALL.md)
 - [Robust Panoptic Mapping](mapping/)
-- [Scene Generation](interactive_scene/scene_builder/)
+- [Contact Graph and CAD Replacement](cad_replacement/)
+- [Interactive Scene Generation and Gazebo Example](interactive_scene/scene_builder/)
 
 
 ## Citing

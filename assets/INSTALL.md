@@ -36,8 +36,8 @@ git clone --recursive https://github.com/hmz-15/Interactive-Scene-Reconstruction
 Then add dependencies specified by .rosinstall using wstool. For your conivenience, we provide a shell to automatically setup the wstool configuration.
 
 ``` shell
-cd <your-ros-ws>
-sh src/Interactive-Scene-Reconstruction/wstool_setup_https.sh
+cd Interactive-Scene-Reconstruction
+sh wstool_setup_https.sh
 ```
 
 Noted that switch to `wstool_setup_ssh.sh` if you are using ssh instead of https.
@@ -51,12 +51,11 @@ conda create --name robot-scene-recon python=3.7 -y
 conda activate robot-scene-recon
 pip install pip --upgrade
 
-cd <your-ros-ws>/src/Interactive-Scene-Reconstruction
 # detectron2 dependencies
 pip install torch torchvision
 python -m pip install detectron2 -f \
   https://dl.fbaipublicfiles.com/detectron2/wheels/cu102/torch1.10/index.html
-# other dependencies
+# other dependencies (under Interactive-Scene-Reconstruction/)
 pip install -r requirements.txt
 ```
 
@@ -73,16 +72,27 @@ conda deactivate
 We first build the python package containing panoptic segmentation server.
 ``` shell
 conda activate robot-scene-recon
-cd Interactive-Scene-Reconstruction/mapping/rp_server
+cd mapping/rp_server
 make dev
 ```
 
 Then we build the ros packages with `catkin build`.
+
 ``` shell
 cd <your-ros-ws>
-# Build packages for panoptic mapping
-catkin build panoptic_mapping_pipeline scene_builder gazebo_simulation -j2
+catkin build panoptic_mapping_pipeline map_proc scene_builder gazebo_simulation -j2
 source devel/setup.bash
+```
+
+Alternatively, you may want to build packages for each individule module:
+
+``` shell
+# Build packages for panoptic mapping
+catkin build panoptic_mapping_pipeline -j2
+# Build packages for cad replacement 
+catkin build map_proc
+# Build packages for interactive scene reconstruction & gazebo demo
+catkin build scene_builder gazebo_simulation
 ```
 Please replace `bash` by `zsh` if `zsh` is your default shell.
   
