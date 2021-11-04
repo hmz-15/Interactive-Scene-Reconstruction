@@ -1,0 +1,44 @@
+<launch>
+  
+  <arg name="sequence" default="sceneNN_test" />
+  <node name="map_processing_node" pkg="map_proc" type="map_processing_node" output="screen" >
+      
+      <param name="match_cad" type="bool" value="true" />
+      <param name="save_contact_graph" type="bool" value="true" />
+      <!-- in accordance with mapping -->
+      <param name="ground_axis" type="int" value="1" />
+      <!-- number of selected cad candidates for each map object -->
+      <param name="k_cad_candidates" type="int" value="20" />
+
+      <!-- These two parameters can be used to tune the orientations of aligned CAD models -->
+      <!-- how much a CAD tends to have its back towards the closest wall plane -->
+      <param name="wall_heuristics" type="double" value="0.2" />
+      <!-- we may account for Matching Error in Alignment Error: AE += lambda * ME, lambda in [0, 1]  -->
+      <param name="lambda" type="double" value="0.5" />
+
+      <!-- whether to filter small (extremely incomplete objects) -->
+      <param name="filter_small_objects" type="bool" value="true" />      
+      <!-- record refined object 3D bounding box using supporting relations -->
+      <param name="write_refined_bbox" type="bool" value="true" />
+      <!-- scale the whole scene before cad replacement -->
+      <param name="scale_ratio" type="double" value="1.0" /> 
+      <!-- we usually don't match cabinet as the cabinets on wall can not be handled -->
+      <param name="match_cabinet" type="bool" value="false" />
+
+      <param name="output_folder" type="string" value="$(find map_proc)/../../output/$(arg sequence)" />
+      <param name="cad_database_path" type="string" value="$(find map_proc)/../../cad_dataset/rigid_object" />
+      <param name="cad_id_file" type="string" value="$(find map_proc)/../../cad_dataset/cad_models.csv" />
+      
+      <param name="visualize_scene_mesh" type="bool" value="false" />
+      <param name="visualize_plane_estimation" type="bool" value="false" />
+      <param name="visualize_optimized_alignment" type="bool" value="false" />
+      <param name="visualize_global_regulation" type="bool" value="false" />
+    
+      <param name="if_verbose" type="bool" value="false" />
+
+      <!-- <param name="ground_truth_prefix" type="string" value="/home/muzhi/Data/Dataset/SceneNN/scenenn_data/$(arg scene)/$(arg scene)" /> -->
+      <!-- <param name="match_ground_truth" type="bool" value="false" /> -->
+
+  </node>
+
+</launch>

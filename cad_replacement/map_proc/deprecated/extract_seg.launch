@@ -1,0 +1,8 @@
+<launch>
+
+  <node name="extract_seg_node" pkg="map_proc" type="extract_seg_node" output="screen" >     
+      <param name="GT_annotation_path" type="string" value="/home/muzhi/Data/Dataset/SceneNN/scenenn_data/" />
+      <rosparam param="sequence_id"> ["225", "231"] </rosparam>
+  </node>
+
+</launch>

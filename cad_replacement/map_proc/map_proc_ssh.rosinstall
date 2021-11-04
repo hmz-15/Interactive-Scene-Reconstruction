@@ -1,0 +1,11 @@
+- git:
+    local-name: approxmvbb_catkin
+    uri: git@github.com:TooSchoolForCool/Robot-Vision-Catkin-Deps.git
+    version: approxmvbb_catkin
+- git:
+    local-name: libccd
+    uri: git@github.com:hmz-15/libccd.git
+- git:
+    local-name: fcl
+    uri: git@github.com:flexible-collision-library/fcl.git
+    version: df2702ca5e703dec98ebd725782ce13862e87fc8

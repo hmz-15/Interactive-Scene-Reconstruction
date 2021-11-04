@@ -1,0 +1,6 @@
+# ingore binary, obj files
+bin/
+obj/
+annotated_cg/
+annotated_structure/
+.vscode/
