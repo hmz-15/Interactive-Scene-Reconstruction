@@ -33,11 +33,11 @@ cd src
 git clone --recursive https://github.com/hmz-15/Interactive-Scene-Reconstruction.git
 ```
 
-Then add dependencies specified by .rosinstall using wstool. For your conivenience, we provide a shell to automatically setup the wstool configuration.
+Then add dependencies specified by .rosinstall using wstool. For your conivenience, we provide a script to automatically setup the wstool configuration. *Please make sure you run the script at the root of your ros workspace.*
 
 ``` shell
-cd Interactive-Scene-Reconstruction
-sh wstool_setup_https.sh
+cd <your-ros-ws>
+sh src/Interactive-Scene-Reconstruction/wstool_setup_https.sh
 ```
 
 Noted that switch to `wstool_setup_ssh.sh` if you are using ssh instead of https.
@@ -55,7 +55,8 @@ pip install pip --upgrade
 pip install torch torchvision
 python -m pip install detectron2 -f \
   https://dl.fbaipublicfiles.com/detectron2/wheels/cu102/torch1.10/index.html
-# other dependencies (under Interactive-Scene-Reconstruction/)
+# other dependencies
+cd src/Interactive-Scene-Reconstruction
 pip install -r requirements.txt
 ```
 

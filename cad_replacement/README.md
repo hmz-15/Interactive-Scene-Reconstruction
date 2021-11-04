@@ -8,6 +8,8 @@ The two packages under this directory:
 
 - [**pg_map_ros**](pg_map_ros/pg_map_ros/) : a ros package that defines a class of graph structures (parse graph) and provides functions to construct, save, load and visualize a parse graph.
 
+*Note: Before running the following steps, please make sure you have properly install dependencies and build the packages following [this instruction](../assets/INSTALL.md).*
+
 
 ## 1. Usage
 
@@ -16,8 +18,6 @@ The two packages under this directory:
 We collect a CAD dataset with rigid CAD models from [ShapeNetSem](https://shapenet.org/) and articulated CAD models from the internet. We preprocess the CAD models to transform them into the same canonical pose (+z up, -y front, centered, match real dimensions) and estimate planes on meshes. We also convert articulated CAD models into rigid ones for CAD replacement.
 
 Please download the dataset from [this Google Drive link](https://drive.google.com/file/d/1cQ_bwdK7-jyIUMsteClNdiXIZWrYT5cX/view?usp=sharing), and **extract it under the root directory of `Interactive-Scene-Reconstruction`**.
-
-*Note: Before running the following steps, please make sure you have properly install dependencies and build the packages following [this instruction](../../assets/INSTALL.md).*
 
 
 ### 1.2 Launch the `map_processing_node`
@@ -30,7 +30,7 @@ Then launch the ros node via:
 roslaunch map_proc map_processing.launch sequence:=sceneNN_test
 ```
 
-Note that **to close a viewer and move on to the next step, press `a` on your keyboard**.
+*Note that to close a viewer and move on to the next step, press `a` on your keyboard*.
 
 Please refer to `map_proc/launch/map_processing.launch` for more running options. The generated contact graph is saved under `Interactive-Scene-Reconstruction/output/$SEQUENCE/contact_graph/`. While `contact_graph_seg.json` stores the initialized contact graph without CAD replacement, `contact_graph_cad.json` stores the final output.
 

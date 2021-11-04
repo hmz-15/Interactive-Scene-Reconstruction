@@ -14,7 +14,7 @@ The robust panoptic mapping module contains 4 ros packages and 1 python package:
 
 Please refer to the launch files under `panoptic_mapping_pipeline/launch/` for detailed usages and options.
 
-*Note: Before running the following steps, please make sure you have properly install dependencies and build the packages following [this instruction](../../assets/INSTALL.md).*
+*Note: Before running the following steps, please make sure you have properly install dependencies and build the packages following [this instruction](../assets/INSTALL.md).*
 
 
 ## 1. Run Mapping on SceneNN Dataset
