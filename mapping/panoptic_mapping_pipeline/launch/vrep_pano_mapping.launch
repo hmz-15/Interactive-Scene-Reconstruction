@@ -100,7 +100,7 @@
       <remap from="/perception/camera_info" to="$(arg output_camera_info_topic)"/>
       <remap from="/perception/seg" to="$(arg output_seg_topic)"/>
       
-      <param name="output_folder" type="string" value="$(eval '/'.join(find('panoptic_mapping_pipeline').split('/')[:-2])+'/output/'+arg('sequence'))" />
+      <param name="output_folder" type="string" value="$(find panoptic_mapping_pipeline)/../../output/$(arg sequence)" />
       <param name="use_GT_camera_frame" type="bool" value="$(arg use_GT_pose)" />
       <param name="camera_frame" type="string" value="$(arg camera_frame)" />
       <param name="save_img" type="bool" value="$(arg save_img)" />
@@ -109,7 +109,7 @@
 
   <!-- launch node for panoptic mapping -->
   <node name="gsm_node" pkg="gsm_node" type="gsm_node" output="screen" if="$(arg mapping)">
-      <param name="output_folder" value="$(eval '/'.join(find('panoptic_mapping_pipeline').split('/')[:-2])+'/output/'+arg('sequence'))" />
+      <param name="output_folder" type="string" value="$(find panoptic_mapping_pipeline)/../../output/$(arg sequence)" />
       <rosparam command="load" file="$(find gsm_node)/cfg/default.yaml" />
       <rosparam command="load" file="$(find gsm_node)/cfg/pano_mapping.yaml" />
       <rosparam command="load" file="$(find panoptic_mapping_pipeline)/cfg/pano_class.yaml" />
