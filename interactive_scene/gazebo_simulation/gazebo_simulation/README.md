@@ -2,7 +2,7 @@
 
 We also provide interface to generate a Gazebo simulation environment of the reconstructed scene, which could be directly loaded into the Gazebo simulator, and supports robot perception, navigation and manipulation tasks.
 
-For details of generating the Gazebo simulation world, please visit [HERE](../scene_builder).
+For details of generating the Gazebo simulation world, please visit [HERE](https://github.com/hmz-15/Interactive-Scene-Reconstruction/tree/main/interactive_scene#31-gazebo-scene-generation).
 
 ## 1. Installation
 
