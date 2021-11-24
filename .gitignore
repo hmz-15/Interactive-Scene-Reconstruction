@@ -57,4 +57,5 @@ coverage.xml
 # wstool dependencies & output
 dependency/
 output/
+cad_dataset/
 .vscode/
