@@ -20,15 +20,6 @@ The pipeline consists of 3 modules:
 - An object-based reasoning module that constructs a contact graph from the dense panoptic map and replaces objects with aligned CAD models
 - An interface that converts a contact graph into a kinematic tree in the URDF format, which can be imported into ROS-based simulators
 
-
-## Todo
-
-- [x] Upload code for panoptic mapping
-- [x] Upload code for CAD replacement
-- [x] Upload code for URDF conversion and scene visualization
-- [x] Upload dataset and use cases
-- [x] Update instructions
-
 ## Installation and Usages
 
 - [Installation on Ubuntu](assets/INSTALL.md)
@@ -39,13 +30,24 @@ The pipeline consists of 3 modules:
 
 ## Citing
 
+- Muzhi Han*, Zeyu Zhang*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Scene Reconstruction with Functional Objects for Robot Autonomy**, International Journal of Computer Vision (IJCV), 2022
+
 - Muzhi Han*, Zeyu Zhang*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments**, IEEE International Conference on Robotics and Automation (ICRA), 2021
 
 ```bibtex
+@article{han2022scene,
+  title={Scene Reconstruction with Functional Objects for Robot Autonomy},
+  author={Han, Muzhi and Zhang, Zeyu and Jiao, Ziyuan and Xie, Xu and Zhu, Yixin and Zhu, Song-Chun and Liu, Hangxin},
+  journal={International Journal of Computer Vision (IJCV)},
+  year={2022},
+  publisher={Springer}
+}
+
 @inproceedings{han2021reconstructing,
   title={Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments},
   author={Han, Muzhi and Zhang, Zeyu and Jiao, Ziyuan and Xie, Xu and Zhu, Yixin and Zhu, Song-Chun and Liu, Hangxin},
-  booktitle={ICRA},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
   year={2021}
 }
 ```
+
