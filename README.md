@@ -5,15 +5,11 @@
 ![ros-version](https://img.shields.io/badge/ubuntu%2020.04+ROS%20noetic-passing-brightgreen)
 ![python-version](https://img.shields.io/badge/Python-3.7%2B-blue)
 
-### [Project Page](https://sites.google.com/view/icra2021-reconstruction) | [Paper](https://ieeexplore.ieee.org/document/9561546) | [Arxiv](https://arxiv.org/pdf/2103.16095.pdf)
 <p align="center">
   <img width="500" height="300" src="assets/motivation.jpg">
 </p>
 
-
-This repository contains the implementation of our ICRA2021 paper [Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments](https://sites.google.com/view/icra2021-reconstruction). 
-The proposed pipeline reconstructs an interactive indoor scene from RGBD streams, where objects are replaced by (articulated) CAD models. Represented as a contact graph, 
-the reconstructed scene naturally encodes actionable information in terms of environmental kinematics, and can be imported into various simulators to support robot interactions.
+This repo implements a machine perception pipeline that reconstructs an interactive indoor scene from RGBD streams, where objects are replaced by (articulated) CAD models. Represented as a contact graph, the reconstructed scene naturally encodes actionable information in terms of environmental kinematics, and can be imported into various simulators (via URDF) to support robot interactions.
 
 The pipeline consists of 3 modules:
 - A robust panoptic mapping module that accurately reconstruct the semantics and geometry of objects and layouts, which is a modified version of [Voxblox++](https://github.com/ethz-asl/voxblox-plusplus) but with improved robustness. The 2D image segmentation is obtained using [Detectron2](https://github.com/facebookresearch/detectron2)
@@ -30,9 +26,9 @@ The pipeline consists of 3 modules:
 
 ## Citing
 
-- Muzhi Han*, Zeyu Zhang*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Scene Reconstruction with Functional Objects for Robot Autonomy**, International Journal of Computer Vision (IJCV), 2022
+- Muzhi Han\*, Zeyu Zhang\*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Scene Reconstruction with Functional Objects for Robot Autonomy**, International Journal of Computer Vision (IJCV), 2022  [[Web](https://sites.google.com/view/ijcv2022-reconstruction)]
 
-- Muzhi Han*, Zeyu Zhang*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments**, IEEE International Conference on Robotics and Automation (ICRA), 2021
+- Muzhi Han\*, Zeyu Zhang\*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments**, IEEE International Conference on Robotics and Automation (ICRA), 2021 [[Paper](https://ieeexplore.ieee.org/document/9561546)] [[Arxiv](https://arxiv.org/abs/2103.16095)]
 
 ```bibtex
 @article{han2022scene,
@@ -50,4 +46,12 @@ The pipeline consists of 3 modules:
   year={2021}
 }
 ```
+
+## Related Publications in Robot Planning
+
+- Ziyuan Jiao, Yida Niu, Zeyu Zhang, Song-Chun Zhu, Yixin Zhu, and Hangxin Liu. **Sequential Manipulation Planning on Scene Graph**, IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2022 [[web](https://sites.google.com/view/planning-on-graph/home)]
+- Ziyuan Jiao\*, Zeyu Zhang\*, Weiqi Wang, David Han, Song-Chun Zhu, Yixin Zhu, and Hangxin Liu. **Efficient Task Planning for Mobile Manipulation: a Virtual Kinematic Chain Perspective**, IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2021 [[web](https://sites.google.com/view/iros2021-vkc/home/vkc-task?authuser=0)]
+- Ziyuan Jiao\*, Zeyu Zhang\*, Xin Jiang, David Han, Song-Chun Zhu, Yixin Zhu, and Hangxin Liu. **Consolidating Kinematic Models to Promote Coordinated Mobile Manipulations**, IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2021 [[web](https://sites.google.com/view/iros2021-vkc/home/vkc-motion?authuser=0)]
+
+
 
