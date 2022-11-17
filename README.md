@@ -26,9 +26,9 @@ The pipeline consists of 3 modules:
 
 ## Citing
 
-- Muzhi Han\*, Zeyu Zhang\*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Scene Reconstruction with Functional Objects for Robot Autonomy**, International Journal of Computer Vision (IJCV), 2022  [[Web](https://sites.google.com/view/ijcv2022-reconstruction)]
+- Muzhi Han\*, Zeyu Zhang\*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Scene Reconstruction with Functional Objects for Robot Autonomy**, International Journal of Computer Vision (IJCV), 2022  [[Web](https://sites.google.com/view/ijcv2022-reconstruction)] [[Paper](https://yzhu.io/publication/scenereconstruction2022ijcv/paper.pdf)]
 
-- Muzhi Han\*, Zeyu Zhang\*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments**, IEEE International Conference on Robotics and Automation (ICRA), 2021 [[Paper](https://ieeexplore.ieee.org/document/9561546)] [[Arxiv](https://arxiv.org/abs/2103.16095)]
+- Muzhi Han\*, Zeyu Zhang\*, Ziyuan Jiao, Xu Xie, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Reconstructing Interactive 3D Scenes by Panoptic Mapping and CAD Model Alignments**, IEEE International Conference on Robotics and Automation (ICRA), 2021 [[Paper](https://yzhu.io/publication/scenereconstruction2021icra/paper.pdf)] [[Arxiv](https://arxiv.org/abs/2103.16095)]
 
 ```bibtex
 @article{han2022scene,
