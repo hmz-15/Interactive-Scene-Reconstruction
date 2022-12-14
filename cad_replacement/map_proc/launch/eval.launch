@@ -1,0 +1,15 @@
+<launch>
+
+  <node name="eval_node" pkg="map_proc" type="eval_node" output="screen">
+    <!-- Output directory that have subfolders as sequence IDs  -->
+    <param name="output_folder" type="string" value="$(find map_proc)/../../output" />
+
+    <!-- Need to change this to your sceneNN annotation path -->
+    <param name="GT_annotation_path" type="string" value="/home/muzhi/Data/Datasets/SceneNN/scenenn_data/sequences" />
+    <!-- This result file will appear in your output folder -->
+    <param name="save_result_file_name" type="string" value="result.json" />
+
+    <rosparam command="load" file="$(find map_proc)/cfg/eval.yaml" />
+  </node>
+
+</launch>

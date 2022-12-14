@@ -95,6 +95,13 @@ target_link_libraries(map_processing_node
   ${PROJECT_NAME}
 )
 
+add_executable(eval_node src/eval_node.cpp)
+add_dependencies(eval_node ${PROJECT_NAME})
+target_link_libraries(eval_node
+  ${catkin_LIBRARIES} ${TinyXML_LIBRARIES}
+  ${PROJECT_NAME}
+)
+
 
 #############
 ## Install ##
