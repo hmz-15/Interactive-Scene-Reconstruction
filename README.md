@@ -20,6 +20,7 @@ The pipeline consists of 3 modules:
 
 - [Installation on Ubuntu](assets/INSTALL.md)
 - [Robust Panoptic Mapping](mapping/)
+- [**New!**] [Mapping Evaluations](assets/EVALUATION.md) 
 - [Contact Graph and CAD Replacement](cad_replacement/)
 - [Interactive Scene Generation and Gazebo Example](interactive_scene/)
 

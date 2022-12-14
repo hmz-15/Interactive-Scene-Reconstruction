@@ -22,3 +22,5 @@ do
     rosservice call /gsm_node/extract_instances
     sleep 10
 done
+
+echo "Done"
