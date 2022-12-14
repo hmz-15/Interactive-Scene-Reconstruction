@@ -9,6 +9,8 @@
   <img width="500" height="300" src="assets/motivation.jpg">
 </p>
 
+- [**New!**] [Mapping evaluations added](assets/EVALUATION.md) 
+
 This repo implements a machine perception pipeline that reconstructs an interactive indoor scene from RGBD streams, where objects are replaced by (articulated) CAD models. Represented as a contact graph, the reconstructed scene naturally encodes actionable information in terms of environmental kinematics, and can be imported into various simulators (via URDF) to support robot interactions.
 
 The pipeline consists of 3 modules:
