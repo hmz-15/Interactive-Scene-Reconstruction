@@ -273,7 +273,7 @@ void EvalNode::ComputeMatch (const std::map<std::string, std::vector<Obj3D::Ptr>
                 }
             }
             // Sort candidates based on the number of counts
-            auto pair_cmp = [](const auto& a, const auto& b) ->bool {a.second > b.second;};
+            auto pair_cmp = [](const auto& a, const auto& b) ->bool {return a.second > b.second;};
             std::sort(candidates.begin(), candidates.end(),pair_cmp);
 
 
