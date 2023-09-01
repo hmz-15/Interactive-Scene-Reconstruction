@@ -10,6 +10,7 @@
 </p>
 
 - [**New!**] [Mapping evaluations added](assets/EVALUATION.md) 
+- [**New!**] [Extended part-based work added](https://github.com/bigai-ai/Part-Interactive-Scene)
 
 This repo implements a machine perception pipeline that reconstructs an interactive indoor scene from RGBD streams, where objects are replaced by (articulated) CAD models. Represented as a contact graph, the reconstructed scene naturally encodes actionable information in terms of environmental kinematics, and can be imported into various simulators (via URDF) to support robot interactions.
 
