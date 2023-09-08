@@ -10,7 +10,6 @@
 </p>
 
 - [**New!**] [Mapping evaluations added](assets/EVALUATION.md) 
-- [**New!**] [Extended part-based work added](https://github.com/bigai-ai/Part-Interactive-Scene)
 
 This repo implements a machine perception pipeline that reconstructs an interactive indoor scene from RGBD streams, where objects are replaced by (articulated) CAD models. Represented as a contact graph, the reconstructed scene naturally encodes actionable information in terms of environmental kinematics, and can be imported into various simulators (via URDF) to support robot interactions.
 
@@ -50,6 +49,10 @@ The pipeline consists of 3 modules:
   year={2021}
 }
 ```
+
+## Extended Part-based Work
+
+- Zeyu Zhang\*, Lexing Zhang\*, Zaijin Wang, Ziyuan Jiao, Muzhi Han, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Part-level Scene Reconstruction Affords Robot Interaction**, IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023 [[Web](https://zeyuzhang.com/papers/2023-iros-part-scene/)] [[Paper](https://yzhu.io/publication/scenereconstruction2023iros/paper.pdf)] [[Arxiv](https://arxiv.org/abs/2307.16420)]
 
 ## Related Publications in Robot Planning
 
