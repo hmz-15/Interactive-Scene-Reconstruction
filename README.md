@@ -50,6 +50,10 @@ The pipeline consists of 3 modules:
 }
 ```
 
+## Extended Part-based Work
+
+- Zeyu Zhang\*, Lexing Zhang\*, Zaijin Wang, Ziyuan Jiao, Muzhi Han, Yixin Zhu, Song-Chun Zhu, and Hangxin Liu. **Part-level Scene Reconstruction Affords Robot Interaction**, IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2023 [[Web](https://zeyuzhang.com/papers/2023-iros-part-scene/)] [[Paper](https://yzhu.io/publication/scenereconstruction2023iros/paper.pdf)] [[Arxiv](https://arxiv.org/abs/2307.16420)]
+
 ## Related Publications in Robot Planning
 
 - Ziyuan Jiao, Yida Niu, Zeyu Zhang, Song-Chun Zhu, Yixin Zhu, and Hangxin Liu. **Sequential Manipulation Planning on Scene Graph**, IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2022 [[web](https://sites.google.com/view/planning-on-graph/home)]
