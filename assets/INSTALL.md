@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - Ubuntu 16.04/18.04/20.04 with compatible ROS version
-- Python >= 3.7
+- Python >= 3.8
 - gcc & g++ >= 5.4
 - OpenCV 3 or 4
 - Nvidia GPU (with compatible cuda toolkit and cuDNN) if want to run online segmentation
