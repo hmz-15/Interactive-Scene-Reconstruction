@@ -17,7 +17,7 @@ The two packages under this directory:
 
 We collect a CAD dataset with rigid CAD models from [ShapeNetSem](https://shapenet.org/) and articulated CAD models from the internet. We preprocess the CAD models to transform them into the same canonical pose (+z up, -y front, centered, match real dimensions) and estimate planes on meshes. We also convert articulated CAD models into rigid ones for CAD replacement.
 
-Please download the dataset from [this Google Drive link](https://drive.google.com/file/d/1cQ_bwdK7-jyIUMsteClNdiXIZWrYT5cX/view?usp=sharing), and **extract it under the root directory of `Interactive-Scene-Reconstruction`**.
+Please download the dataset from [this Google Drive link](https://drive.google.com/file/d/1nTurJUiYkJCNZ660AtIk8YPQp6svR1su/view?usp=sharing), and **extract it under the root directory of `Interactive-Scene-Reconstruction`**.
 
 
 ### 1.2 Launch the `map_processing_node`
