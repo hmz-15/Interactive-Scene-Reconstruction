@@ -37,7 +37,7 @@ Interactive-Scene-Reconstruction/
 
 ### 1.2 Results of panoptic mapping and cad replacement
 
-Please make sure you have the reconstructed panoptic segments and estimated contact graph under `Interactive-Scene-Reconstruction/output/<scene-folder>/`. This can achieved either by going through the [Robust Panoptic Mapping](../mapping/) and [CAD Replacement](../cad_replacement/), or by downloading an example result from the [Google Drive link](https://drive.google.com/file/d/1P2fgpqfWpkhg-CFKS3YpXGP70aKf9tTe/view?usp=sharing). Please extract the downloaded zip file under `Interactive-Scene-Reconstruction/output/`. The folder structure should look like:
+Please make sure you have the reconstructed panoptic segments and estimated contact graph under `Interactive-Scene-Reconstruction/output/<scene-folder>/`. This can achieved either by going through the [Robust Panoptic Mapping](../mapping/) and [CAD Replacement](../cad_replacement/), or by downloading an example result from the [Google Drive link](https://drive.google.com/file/d/192kST4eCo4xqtBpljJynnzosG6armar2/view?usp=drive_link). Please extract the downloaded zip file under `Interactive-Scene-Reconstruction/output/`. The folder structure should look like:
 
 ```text
 <scene-folder>/
