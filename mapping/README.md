@@ -21,7 +21,7 @@ Please refer to the launch files under `panoptic_mapping_pipeline/launch/` for d
 
 [SceneNN dataset](http://103.24.77.34/scenenn/home/) contains RGBD sequences and 3D mesh of indoor scenes. The dataset is available [here](http://103.24.77.34/scenenn/main/). To run panoptic mapping on SceneNN sequences, we first convert the sequences into rosbags using the [scenenn_to_rosbag tool](https://github.com/ethz-asl/scenenn_to_rosbag).
 
-We provide a pre-converted SceneNN rosbag for scene 225, which can be downloaded from this [Google Drive link](https://drive.google.com/file/d/1_4-gcVnPx9S-woaQVBHSTEpW7bX4yRNW/view?usp=sharing).
+We provide a pre-converted SceneNN rosbag for scene 225, which can be downloaded from this [Google Drive link](https://drive.google.com/file/d/1FHAIEfewxqExB4w5JqBaIleHgq_cJ8xs/view?usp=drive_link).
 
 **Step 1** : Launch the python3-based image segmentation server in one terminal. Please make sure you activate the conda env beforehand. The server is successfully launched when "Server launched at 0.0.0.0:8801" shows up.
 
